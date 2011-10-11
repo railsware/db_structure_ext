@@ -1,0 +1,8 @@
+test:
+  database: test
+  adapter: <%= defined?(Mysql2) ? 'mysql2' : 'mysql' %>
+  username: root
+  host: localhost
+  encoding: utf8
+  reconnect: false
+  pool: 5

@@ -1,0 +1,8 @@
+source "http://rubygems.org"
+
+gemspec
+
+gem "mysql", "2.7"
+gem "activerecord", "1.15.6"
+
+gem "rspec", "1.1.12"
