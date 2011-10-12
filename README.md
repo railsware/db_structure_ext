@@ -8,6 +8,12 @@ Library **does not override** mysql adapter by default.
 
 So you can use extensions independently (via MysqlConnectionProxy) or include extension methods into adapter.
 
+## Goals
+
+* dump/load __full__ mysql structure (with tables/views/triggers/routines)
+* dump/load mysql structure from any database/file to any file/database
+* parallel_tests support in mysql structures
+
 ## Installation
 
     gem install db_structure_ext
@@ -39,7 +45,9 @@ Extended *structure_dump* for mysql/mysql2 adapter dumps not only *tables*. It d
 
 Method loads sql statements separated by *\n\n*
 
-### parallel_test support
+### parallel tests support
+
+It supports [parallel_tests](https://github.com/grosser/parallel_tests) or another gems that use TEST_ENV_NUMBER variable for tests parallelization.
 
 It prepends
 
@@ -53,7 +61,7 @@ Add to your *Rakefile*
 
     require 'db_structure_ext/tasks'
 
-In case Rails3 its loaded automaticaly via railtie mechanizm.
+In case Rails3 it loads tasks automaticaly via railtie mechanizm.
 
 ### db:structure:dump
 
@@ -74,7 +82,7 @@ Synopsis:
 
     rake db:structure:load[env,file]  # Load SQL structure file to the database
 
-Its opposite task to *db:structure:load* that allows to load db structure from specified file to specified db environment.
+It's opposite task to *db:structure:load* that allows to load db structure from specified file to specified db environment.
 The arguments is the same as for previous task.
 
 
