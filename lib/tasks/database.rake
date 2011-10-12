@@ -15,7 +15,7 @@ namespace :db do
 
       case adapter_name = ActiveRecord::Base.connection.adapter_name
       when /mysql/i
-        require 'db_structure_ext/mysql_connection_proxy'
+        require 'db_structure_ext'
         connection_proxy = DbStructureExt::MysqlConnectionProxy.new(ActiveRecord::Base.connection)
         File.open(file, "w+") { |f| f << connection_proxy.structure_dump }
       else
@@ -34,7 +34,7 @@ namespace :db do
 
       case adapter_name = ActiveRecord::Base.connection.adapter_name
       when /mysql/i
-        require 'db_structure_ext/mysql_connection_proxy'
+        require 'db_structure_ext'
         connection_proxy = DbStructureExt::MysqlConnectionProxy.new(ActiveRecord::Base.connection)
         connection_proxy.structure_load(file)
       else
