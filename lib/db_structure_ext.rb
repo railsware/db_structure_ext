@@ -1,4 +1,5 @@
-require "db_structure_ext/version"
+require 'db_structure_ext/version'
+require 'db_structure_ext/railtie' if defined?(Rails::Railtie)
 
 module DbStructureExt
   autoload :MysqlAdapter,         'db_structure_ext/mysql_adapter'
