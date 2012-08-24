@@ -142,3 +142,7 @@ It assumes you use RVM and Bundler.
 
     multiversion all rspec spec
 
+## License
+
+* Copyright (c) 2012 Railsware (www.railsware.com)
+* [MIT](www.opensource.org/licenses/MIT)
