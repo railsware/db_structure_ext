@@ -17,7 +17,10 @@ namespace :db do
       when /mysql/i
         require 'db_structure_ext'
         connection_proxy = DbStructureExt::MysqlConnectionProxy.new(ActiveRecord::Base.connection)
-        File.open(file, "w+") { |f| f << connection_proxy.structure_dump }
+        File.open(file, "w+") do |f| 
+          f << connection_proxy.structure_dump
+          f << connection_proxy.dump_schema_information
+        end
       else
         original_db_structure_dump_task.invoke
       end
